@@ -6,7 +6,10 @@ import Conversation from "../models/Conversation.js";
 export const initSocket = (httpServer) => {
   const io = new Server(httpServer, {
     cors: {
-      origin: process.env.CLIENT_URL || "http://localhost:5173",
+      origin: (origin, callback) => {
+        if (!origin) return callback(null, true);
+        return callback(null, true);
+      },
       credentials: true,
     },
     pingTimeout: 60000,
