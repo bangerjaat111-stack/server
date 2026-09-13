@@ -431,5 +431,5 @@ export const sendResetPasswordEmail = async ({ fullName, resetUrl, email }) => {
     throw error;
   }
 };
-
+  
 export default transporter;
